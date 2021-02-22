@@ -1,8 +1,6 @@
 package com.example.codeclan.abductionationservice.controllers;
 
-import com.example.codeclan.abductionationservice.models.Abductee;
 import com.example.codeclan.abductionationservice.models.Spacecraft;
-import com.example.codeclan.abductionationservice.repositories.AbducteeRepository;
 import com.example.codeclan.abductionationservice.repositories.SpacecraftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
