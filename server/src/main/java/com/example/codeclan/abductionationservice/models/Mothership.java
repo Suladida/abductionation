@@ -114,6 +114,12 @@ public class Mothership {
         this.fuel = fuel;
     }
 
-    //    todo: Add methods (scan, abduct, generate, snack, feast)
-
+/*TODO:
+       1. .scan(Planet planet)
+       2. .abduct(Abductee abductee)
+       3. .abductAll(ArrayList<Abductee> abductees)
+       4. .generate(Generator generator, Abductee abductee)
+       5. .generateAll(Generator generator, ArrayList<Abductee> abductees)
+       6. .snack()
+       7. .feast()  */
 }

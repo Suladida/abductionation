@@ -75,11 +75,14 @@ public class Spacecraft {
         this.freshMeat = freshMeat;
     }
 
-    public List<Abduction> getAbductions() {
-        return abductions;
-    }
+    public List<Abduction> getAbductions() { return abductions; }
 
-    public void setAbductions(ArrayList<Abduction> abductions) {
-        this.abductions = abductions;
-    }
+    public void setAbductions(ArrayList<Abduction> abductions) { this.abductions = abductions; }
+
+
+
+
+
+
+
 }
