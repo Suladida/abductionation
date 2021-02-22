@@ -16,12 +16,12 @@ public class Spacecraft {
     private String name;
 
     @Column
-    private int cellCapacity;
+    private double cellCapacity;
 
     @Column
     private ArrayList<Abductee> freshMeat;
 
-    public Spacecraft(String name, int cellCapacity) {
+    public Spacecraft(String name, double cellCapacity) {
         this.name = name;
         this.cellCapacity = cellCapacity;
         this.freshMeat = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Spacecraft {
         this.name = name;
     }
 
-    public int getCellCapacity() {
+    public double getCellCapacity() {
         return cellCapacity;
     }
 

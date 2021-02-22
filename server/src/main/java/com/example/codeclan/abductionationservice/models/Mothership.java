@@ -1,8 +1,5 @@
 package com.example.codeclan.abductionationservice.models;
 
-import com.example.codeclan.abductionationservice.models.energy.DarkMatterNugget;
-import com.example.codeclan.abductionationservice.models.energy.MeatCube;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 
@@ -17,13 +14,13 @@ public class Mothership {
     private Long id;
 
     @Column
-    private int cellCapacity;
+    private double cellCapacity;
 
     @Column
-    private int pantryCapacity;
+    private double pantryCapacity;
 
     @Column
-    private int fuelCapacity;
+    private double fuelCapacity;
 
     @Column
     private ArrayList<Spacecraft> spacecrafts;
@@ -32,18 +29,18 @@ public class Mothership {
     private ArrayList<Abductee> cells;
 
     @Column
-    private int pantry;
+    private double pantry;
 
     @Column
-    private int fuel;
+    private double fuel;
 
-    public Mothership(int cellCapacity, int pantryCapacity, int fuelCapacity) {
+    public Mothership(double cellCapacity, double pantryCapacity, double fuelCapacity) {
         this.cellCapacity = cellCapacity;
         this.pantryCapacity = pantryCapacity;
         this.fuelCapacity = fuelCapacity;
         this.cells = new ArrayList<Abductee>();
-        this.pantry = 0;
-        this.fuel = 0;
+        this.pantry = 0.0;
+        this.fuel = 0.0;
         this.spacecrafts = new ArrayList<Spacecraft>();
 
     }
@@ -58,7 +55,7 @@ public class Mothership {
         this.id = id;
     }
 
-    public int getCellCapacity() {
+    public double getCellCapacity() {
         return cellCapacity;
     }
 
@@ -66,7 +63,7 @@ public class Mothership {
         this.cellCapacity = cellCapacity;
     }
 
-    public int getPantryCapacity() {
+    public double getPantryCapacity() {
         return pantryCapacity;
     }
 
@@ -74,7 +71,7 @@ public class Mothership {
         this.pantryCapacity = pantryCapacity;
     }
 
-    public int getFuelCapacity() {
+    public double getFuelCapacity() {
         return fuelCapacity;
     }
 
@@ -90,7 +87,7 @@ public class Mothership {
         this.cells = cells;
     }
 
-    public int getPantry() {
+    public double getPantry() {
         return pantry;
     }
 
@@ -98,7 +95,7 @@ public class Mothership {
         this.pantry = pantry;
     }
 
-    public int getFuel() {
+    public double getFuel() {
         return fuel;
     }
 
