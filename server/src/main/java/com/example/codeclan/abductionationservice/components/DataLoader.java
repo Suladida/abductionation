@@ -46,11 +46,11 @@ public class DataLoader implements ApplicationRunner {
         planetRepository.save(decapod10);
         planetRepository.save(omecronPersei8);
 
-        Spacecraft scootyPuffJr = new Spacecraft("Scooty Puff Junior", 1);
-        spacecraftRepository.save(scootyPuffJr);
-
         Mothership mothership = new Mothership(10, 10, 10);
         mothershipRepository.save(mothership);
+
+        Spacecraft scootyPuffJr = new Spacecraft("Scooty Puff Junior", 1, mothership);
+        spacecraftRepository.save(scootyPuffJr);
 
         Abduction abduction001 = new Abduction("2021-01-01", "12:00", earth, scootyPuffJr);
         abductionRepository.save(abduction001);

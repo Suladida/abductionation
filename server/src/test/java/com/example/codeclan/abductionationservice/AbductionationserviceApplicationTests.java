@@ -55,7 +55,9 @@ class AbductionationserviceApplicationTests {
 
 	@Test
 	public void createSpacecraft(){
-		Spacecraft scootyPuffJr = new Spacecraft("Scooty Puff Junior", 1);
+		Mothership mothership = new Mothership(10, 10, 10);
+		mothershipRepository.save(mothership);
+		Spacecraft scootyPuffJr = new Spacecraft("Scooty Puff Junior", 1, mothership);
 		spacecraftRepository.save(scootyPuffJr);
 	}
 

@@ -20,6 +20,11 @@ public class Abduction {
     @Column(name="time")
     String time;
 
+//    @ManyToOne
+//    @JoinColumn(name= "mothership", nullable = false)
+//    @JsonIgnoreProperties({"abductions"})
+//    Mothership mothership;
+
     @ManyToOne
     @JoinColumn(name= "planet_id", nullable = false)
     @JsonIgnoreProperties({"abductions"})
@@ -67,6 +72,14 @@ public class Abduction {
     public void setTime(String time) {
         this.time = time;
     }
+
+//    public Mothership getMothership() {
+//        return mothership;
+//    }
+//
+//    public void setMothership(Mothership mothership) {
+//        this.mothership = mothership;
+//    }
 
     public Planet getPlanet() {
         return planet;

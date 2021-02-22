@@ -24,13 +24,19 @@ public class Spacecraft {
     @Column
     private ArrayList<Abductee> freshMeat;
 
-    @JsonIgnoreProperties({"spacecraft"})
     @OneToMany(mappedBy= "spacecraft")
+    @JsonIgnoreProperties({"spacecraft"})
     private List<Abduction> abductions;
 
-    public Spacecraft(String name, double cellCapacity) {
+    @ManyToOne
+    @JoinColumn(name= "mothership", nullable = false)
+    @JsonIgnoreProperties({"spacecrafts"})
+    Mothership mothership;
+
+    public Spacecraft(String name, double cellCapacity, Mothership mothership) {
         this.name = name;
         this.cellCapacity = cellCapacity;
+        this.mothership = mothership;
         this.freshMeat = new ArrayList<>();
         this.abductions = new ArrayList<>();
     }

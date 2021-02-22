@@ -1,7 +1,10 @@
 package com.example.codeclan.abductionationservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="motherships")
@@ -21,8 +24,9 @@ public class Mothership {
     @Column
     private double fuelCapacity;
 
-    @Column
-    private ArrayList<Spacecraft> spacecrafts;
+    @JsonIgnoreProperties({"mothership"})
+    @OneToMany(mappedBy= "mothership")
+    private List<Spacecraft> spacecrafts;
 
     @Column
     private ArrayList<Abductee> cells;
@@ -33,6 +37,7 @@ public class Mothership {
     @Column
     private double fuel;
 
+
     public Mothership(double cellCapacity, double pantryCapacity, double fuelCapacity) {
         this.cellCapacity = cellCapacity;
         this.pantryCapacity = pantryCapacity;
@@ -41,7 +46,6 @@ public class Mothership {
         this.pantry = 0.0;
         this.fuel = 0.0;
         this.spacecrafts = new ArrayList<Spacecraft>();
-
     }
 
     public Mothership(){}
@@ -58,7 +62,7 @@ public class Mothership {
         return cellCapacity;
     }
 
-    public void setCellCapacity(int cellCapacity) {
+    public void setCellCapacity(double cellCapacity) {
         this.cellCapacity = cellCapacity;
     }
 
@@ -66,7 +70,7 @@ public class Mothership {
         return pantryCapacity;
     }
 
-    public void setPantryCapacity(int pantryCapacity) {
+    public void setPantryCapacity(double pantryCapacity) {
         this.pantryCapacity = pantryCapacity;
     }
 
@@ -74,8 +78,16 @@ public class Mothership {
         return fuelCapacity;
     }
 
-    public void setFuelCapacity(int fuelCapacity) {
+    public void setFuelCapacity(double fuelCapacity) {
         this.fuelCapacity = fuelCapacity;
+    }
+
+    public List<Spacecraft> getSpacecrafts() {
+        return spacecrafts;
+    }
+
+    public void setSpacecrafts(List<Spacecraft> spacecrafts) {
+        this.spacecrafts = spacecrafts;
     }
 
     public ArrayList<Abductee> getCells() {
@@ -90,7 +102,7 @@ public class Mothership {
         return pantry;
     }
 
-    public void setPantry(int pantry) {
+    public void setPantry(double pantry) {
         this.pantry = pantry;
     }
 
@@ -98,18 +110,10 @@ public class Mothership {
         return fuel;
     }
 
-    public void setFuel(int fuel) {
+    public void setFuel(double fuel) {
         this.fuel = fuel;
     }
 
-    public ArrayList<Spacecraft> getSpacecrafts() {
-        return spacecrafts;
-    }
-
-    public void setSpacecrafts(ArrayList<Spacecraft> spacecrafts) {
-        this.spacecrafts = spacecrafts;
-    }
-
-//    todo: Add methods (scan, abduct, generate, snack, feast)
+    //    todo: Add methods (scan, abduct, generate, snack, feast)
 
 }
