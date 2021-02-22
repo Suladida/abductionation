@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name="motherships")
-public class Mothership implements IConvert {
+public class Mothership {
+    // todo: implement iGenerate
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,24 +26,24 @@ public class Mothership implements IConvert {
     private int fuelCapacity;
 
     @Column
+    private ArrayList<Spacecraft> spacecrafts;
+
+    @Column
     private ArrayList<Abductee> cells;
 
     @Column
-    private ArrayList<MeatCube> pantry;
+    private int pantry;
 
     @Column
-    private ArrayList<DarkMatterNugget> fuel;
-
-    @Column
-    private ArrayList<Spacecraft> spacecrafts;
+    private int fuel;
 
     public Mothership(int cellCapacity, int pantryCapacity, int fuelCapacity) {
         this.cellCapacity = cellCapacity;
         this.pantryCapacity = pantryCapacity;
         this.fuelCapacity = fuelCapacity;
         this.cells = new ArrayList<Abductee>();
-        this.pantry = new ArrayList<MeatCube>();
-        this.fuel = new ArrayList<DarkMatterNugget>();
+        this.pantry = 0;
+        this.fuel = 0;
         this.spacecrafts = new ArrayList<Spacecraft>();
 
     }
@@ -89,19 +90,19 @@ public class Mothership implements IConvert {
         this.cells = cells;
     }
 
-    public ArrayList<MeatCube> getPantry() {
+    public int getPantry() {
         return pantry;
     }
 
-    public void setPantry(ArrayList<MeatCube> pantry) {
+    public void setPantry(int pantry) {
         this.pantry = pantry;
     }
 
-    public ArrayList<DarkMatterNugget> getFuel() {
+    public int getFuel() {
         return fuel;
     }
 
-    public void setFuel(ArrayList<DarkMatterNugget> fuel) {
+    public void setFuel(int fuel) {
         this.fuel = fuel;
     }
 
@@ -113,11 +114,6 @@ public class Mothership implements IConvert {
         this.spacecrafts = spacecrafts;
     }
 
-    @Override
-    public double convertMeatCube(Abductee abductee) {
-        return (abductee.weight * abductee.density);
-    }
-
-//    todo: Add methods (scan, abduct, chum, fuel, snack, feast)
+//    todo: Add methods (scan, abduct, generate, snack, feast)
 
 }
