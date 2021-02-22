@@ -115,7 +115,7 @@ public class Mothership implements IConvert {
 
     @Override
     public double convertMeatCube(Abductee abductee) {
-        return (abductee.weightKG * abductee.density);
+        return (abductee.weight * abductee.density);
     }
 
 //    todo: Add methods (scan, abduct, chum, fuel, snack, feast)

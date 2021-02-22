@@ -14,19 +14,15 @@ public class Abductee {
     @Column(name="species")
     Species species;
 
-    @Column(name="species_name")
-    String species_name;
-
-    @Column(name="weightKG")
-    double weightKG;
+    @Column(name="weight")
+    double weight;
 
     @Column(name="density")
     double density;
 
-    public Abductee(Species species, double weightKG, double density) {
+    public Abductee(Species species, double weight, double density) {
         this.species = species;
-        this.species_name = this.species.toString();
-        this.weightKG = weightKG;
+        this.weight = weight;
         this.density = density;
     }
 
@@ -49,12 +45,12 @@ public class Abductee {
         this.species = species;
     }
 
-    public double getWeightKG() {
-        return weightKG;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setWeightKG(double weightKG) {
-        this.weightKG = weightKG;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public double getDensity() {
