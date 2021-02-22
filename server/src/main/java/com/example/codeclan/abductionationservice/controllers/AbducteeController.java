@@ -5,9 +5,7 @@ import com.example.codeclan.abductionationservice.repositories.AbducteeRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +24,12 @@ public class AbducteeController {
     @GetMapping(value="/abductees/{id}")
     public ResponseEntity<Optional<Abductee>> getAbductee(@PathVariable Long id){
         return new ResponseEntity<>(abducteeRepository.findById(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/abductees")
+    public ResponseEntity<Abductee> createAbductee(@RequestBody Abductee abductee) {
+        abducteeRepository.save(abductee);
+        return new ResponseEntity<>(abductee, HttpStatus.CREATED);
     }
 
 }
