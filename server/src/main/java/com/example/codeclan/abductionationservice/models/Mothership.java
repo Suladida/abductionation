@@ -47,6 +47,8 @@ public class Mothership implements IConvert {
 
     }
 
+    public Mothership(){}
+
     public Long getId() {
         return id;
     }

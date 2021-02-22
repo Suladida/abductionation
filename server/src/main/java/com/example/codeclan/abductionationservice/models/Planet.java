@@ -27,6 +27,8 @@ public class Planet {
         this.population = new ArrayList<Abductee>();
     }
 
+    public Planet(){}
+
     public Long getId() {
         return id;
     }

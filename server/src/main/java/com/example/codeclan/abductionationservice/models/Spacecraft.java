@@ -27,6 +27,8 @@ public class Spacecraft {
         this.freshMeat = new ArrayList<>();
     }
 
+    public Spacecraft(){}
+
     public Long getId() {
         return id;
     }
