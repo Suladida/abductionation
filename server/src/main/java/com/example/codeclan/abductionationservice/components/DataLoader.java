@@ -1,10 +1,7 @@
 package com.example.codeclan.abductionationservice.components;
 
 import com.example.codeclan.abductionationservice.models.*;
-import com.example.codeclan.abductionationservice.repositories.AbducteeRepository;
-import com.example.codeclan.abductionationservice.repositories.MothershipRepository;
-import com.example.codeclan.abductionationservice.repositories.PlanetRepository;
-import com.example.codeclan.abductionationservice.repositories.SpacecraftRepository;
+import com.example.codeclan.abductionationservice.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -24,6 +21,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     SpacecraftRepository spacecraftRepository;
+
+    @Autowired
+    AbductionRepository abductionRepository;
 
     public DataLoader(){
 
@@ -51,6 +51,9 @@ public class DataLoader implements ApplicationRunner {
 
         Mothership mothership = new Mothership(10, 10, 10);
         mothershipRepository.save(mothership);
+
+        Abduction abduction001 = new Abduction("2021-01-01", "12:00", earth, scootyPuffJr);
+        abductionRepository.save(abduction001);
 
     }
 }

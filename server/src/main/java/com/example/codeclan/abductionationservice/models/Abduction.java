@@ -1,9 +1,9 @@
 package com.example.codeclan.abductionationservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Entity
 @Table(name="abductions")
@@ -15,26 +15,30 @@ public class Abduction {
     private Long id;
 
     @Column(name="date")
-    Date date;
+    String date;
 
     @Column(name="time")
-    Time time;
+    String time;
 
-    @Column(name="planet")
+    @ManyToOne
+    @JoinColumn(name= "planet_id", nullable = false)
+    @JsonIgnoreProperties({"abductions"})
     Planet planet;
 
-    @Column(name="spacecraft")
+    @ManyToOne
+    @JoinColumn(name= "spacecraft_id", nullable = false)
+    @JsonIgnoreProperties({"abductions"})
     Spacecraft spacecraft;
 
     @Column(name="beam")
     ArrayList<Abductee> beam;
 
-    public Abduction(Date date, Time time, Planet planet, Spacecraft spacecraft) {
+    public Abduction(String date, String time, Planet planet, Spacecraft spacecraft) {
         this.date = date;
         this.time = time;
         this.planet = planet;
         this.spacecraft = spacecraft;
-        this.beam = new ArrayList<Abductee>();
+        this.beam = new ArrayList<>();
     }
 
     public Abduction() {
@@ -48,19 +52,19 @@ public class Abduction {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

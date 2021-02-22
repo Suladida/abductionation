@@ -1,7 +1,10 @@
 package com.example.codeclan.abductionationservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="spacecrafts")
@@ -21,10 +24,15 @@ public class Spacecraft {
     @Column
     private ArrayList<Abductee> freshMeat;
 
+    @JsonIgnoreProperties({"spacecraft"})
+    @OneToMany(mappedBy= "spacecraft")
+    private List<Abduction> abductions;
+
     public Spacecraft(String name, double cellCapacity) {
         this.name = name;
         this.cellCapacity = cellCapacity;
         this.freshMeat = new ArrayList<>();
+        this.abductions = new ArrayList<>();
     }
 
     public Spacecraft(){}
@@ -49,7 +57,7 @@ public class Spacecraft {
         return cellCapacity;
     }
 
-    public void setCellCapacity(int cellCapacity) {
+    public void setCellCapacity(double cellCapacity) {
         this.cellCapacity = cellCapacity;
     }
 
@@ -59,5 +67,13 @@ public class Spacecraft {
 
     public void setFreshMeat(ArrayList<Abductee> freshMeat) {
         this.freshMeat = freshMeat;
+    }
+
+    public List<Abduction> getAbductions() {
+        return abductions;
+    }
+
+    public void setAbductions(ArrayList<Abduction> abductions) {
+        this.abductions = abductions;
     }
 }
