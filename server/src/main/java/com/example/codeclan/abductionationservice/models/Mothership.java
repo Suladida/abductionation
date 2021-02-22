@@ -6,7 +6,6 @@ import java.util.ArrayList;
 @Entity
 @Table(name="motherships")
 public class Mothership {
-    // todo: implement iGenerate
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
