@@ -114,6 +114,16 @@ public class Mothership {
         this.fuel = fuel;
     }
 
+    public ArrayList<Abductee> scan(Planet planet){
+        ArrayList<Abductee> population = planet.getPopulation();
+        return population;
+    }
+
+    public void abduct(Spacecraft spacecraft, Abductee abductee){
+        cells.add(abductee);
+        spacecraft.removeAbductee(abductee);
+    }
+
 /*TODO:
        1. .scan(Planet planet)
        2. .abduct(Abductee abductee)

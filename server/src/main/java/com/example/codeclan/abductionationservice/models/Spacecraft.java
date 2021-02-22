@@ -75,11 +75,24 @@ public class Spacecraft {
         this.freshMeat = freshMeat;
     }
 
+    public void removeAbductee(Abductee abductee){
+        freshMeat.remove(abductee);
+    }
+
+    public void removeAbductees(ArrayList<Abductee> abductees){
+        freshMeat.remove(abductees);
+    }
+
+    public void clearFreshMeat(){ freshMeat.clear(); }
+
     public List<Abduction> getAbductions() { return abductions; }
 
     public void setAbductions(ArrayList<Abduction> abductions) { this.abductions = abductions; }
 
-
+    public ArrayList<Abductee> scanPlanet(Planet planet){
+        ArrayList<Abductee> population = planet.getPopulation();
+        return population;
+    }
 
 
 

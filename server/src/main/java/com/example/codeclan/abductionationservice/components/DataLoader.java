@@ -1,6 +1,9 @@
 package com.example.codeclan.abductionationservice.components;
 
 import com.example.codeclan.abductionationservice.models.*;
+import com.example.codeclan.abductionationservice.models.generators.Chummer;
+import com.example.codeclan.abductionationservice.models.generators.Flicker;
+import com.example.codeclan.abductionationservice.models.generators.Generator;
 import com.example.codeclan.abductionationservice.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -24,6 +27,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     AbductionRepository abductionRepository;
+
+    @Autowired
+    GeneratorRepository generatorRepository;
 
     public DataLoader(){
 
@@ -55,5 +61,12 @@ public class DataLoader implements ApplicationRunner {
         Abduction abduction001 = new Abduction("2021-01-01", "12:00", earth, scootyPuffJr);
         abductionRepository.save(abduction001);
 
+        Generator chummer = new Chummer();
+        generatorRepository.save(chummer);
+        Generator flicker = new Flicker();
+        generatorRepository.save(flicker);
+
     }
+
+
 }

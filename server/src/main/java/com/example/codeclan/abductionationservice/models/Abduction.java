@@ -20,11 +20,6 @@ public class Abduction {
     @Column(name="time")
     String time;
 
-//    @ManyToOne
-//    @JoinColumn(name= "mothership", nullable = false)
-//    @JsonIgnoreProperties({"abductions"})
-//    Mothership mothership;
-
     @ManyToOne
     @JoinColumn(name= "planet_id", nullable = false)
     @JsonIgnoreProperties({"abductions"})
