@@ -24,8 +24,8 @@ public class AbducteeController {
     }
 
     @GetMapping(value="/abductees/{id}")
-    public Optional<Abductee> getAbductee(@PathVariable Long id){
-        return abducteeRepository.findById(id);
+    public ResponseEntity<Optional<Abductee>> getAbductee(@PathVariable Long id){
+        return new ResponseEntity<>(abducteeRepository.findById(id), HttpStatus.OK);
     }
 
 }
