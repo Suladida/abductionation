@@ -119,10 +119,18 @@ public class Mothership {
         return population;
     }
 
-    public void abduct(Spacecraft spacecraft, Abductee abductee){
-        cells.add(abductee);
-        spacecraft.removeAbductee(abductee);
-    }
+//    public void abduct(Spacecraft spacecraft, Planet planet, ArrayList<Abductee> abductees){
+////        SCAN PLANET
+//        ArrayList<Abductee> population = spacecraft.scanPlanet(planet);
+////        BEAM ABDUCTEES
+//        spacecraft.beamAll(abductees);
+////        REMOVE FROM PLANET
+//        population.removeAll(abductees);
+////        ABDUCT ABDUCTEES
+//        cells.addAll(abductees);
+////        REMOVE FROM SPACECRAFT
+//        spacecraft.removeAbductees(abductees);
+//    }
 
 /*TODO:
        1. .scan(Planet planet)

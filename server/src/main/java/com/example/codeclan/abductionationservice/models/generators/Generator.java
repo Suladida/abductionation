@@ -2,6 +2,8 @@ package com.example.codeclan.abductionationservice.models.generators;
 
 import javax.persistence.*;
 
+// TODO: make indie generators save with ID.
+
 @Entity
 @Table(name="generators")
 public abstract class Generator {

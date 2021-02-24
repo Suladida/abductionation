@@ -9,7 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -77,6 +80,42 @@ class AbductionationserviceApplicationTests {
 		Generator flicker = new Flicker();
 		generatorRepository.save(flicker);
 		assertEquals(2, generatorRepository.findAll());
+
+	}
+
+	@Test
+	public void canAbduct(){
+		Mothership mothership = new Mothership(10, 10, 10);
+		mothershipRepository.save(mothership);
+		Spacecraft scootyPuffJr = new Spacecraft("Scooty Puff Junior", 1, mothership);
+		spacecraftRepository.save(scootyPuffJr);
+		Planet earth = new Planet("Earth", Species.HUMAN);
+		planetRepository.save(earth);
+
+		ArrayList<Abductee> population = new ArrayList<Abductee>();
+		Abductee human002 = new Abductee(Species.HUMAN, 75.0, 0.5);
+		Abductee human003 = new Abductee(Species.HUMAN, 75.0, 0.5);
+		Abductee human004 = new Abductee(Species.HUMAN, 75.0, 0.5);
+		population.add(human002);
+		population.add(human003);
+		population.add(human004);
+
+		earth.setPopulation(population);
+
+		assertEquals(3, earth.getPopulation().size());
+
+		ArrayList<Abductee> earthScan = scootyPuffJr.scanPlanet(earth);
+//		scootyPuffJr.beamAll(earthScan);
+
+//		mothership.abduct(scootyPuffJr, earth, earthScan);
+
+		assertEquals(0, earth.getPopulation().size());
+		assertEquals(0, scootyPuffJr.getFreshMeat().size());
+		assertEquals(3, mothership.getCells().size());
+
+
+
+
 
 	}
 

@@ -1,14 +1,23 @@
 import logo from './logo.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
+import NavBar from './components/NavBar';
+import MainContainer from './containers/MainContainer';
 
 function App() {
   return (
     <div className="App">
-      <h1>👽👽👽</h1>
-      <h1>ABDUCTIONATIONS: PENDING.</h1>
-      <p>World Domination Coming Soon!</p>
+      < NavBar />
+      < MainContainer/>
+      
+      
     </div>
   );
 }
+
+ReactDOM.render(
+  <App/>, document.getElementById('root')
+);
 
 export default App;

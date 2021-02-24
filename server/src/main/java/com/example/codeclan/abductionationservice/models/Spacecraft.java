@@ -94,6 +94,17 @@ public class Spacecraft {
         return population;
     }
 
+    public void beam(Abductee abductee){
+        freshMeat.add(abductee);
+    }
+
+    public void beamAll(ArrayList<Abductee> abductees){
+        freshMeat.addAll(abductees);
+    }
+
+
+
+
 
 
 
